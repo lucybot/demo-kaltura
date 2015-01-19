@@ -1,0 +1,54 @@
+{
+  "recipes": {
+    "likeButton": {
+      "label": "Like Button",
+      "templates: {
+        "client": 'like-button',
+        "server": ["like", "unlike", "check-like"]
+      },
+      "questions": [{
+        "question": "What video should the button apply to?",
+        "type": "userInput",
+        "subtype": "text",
+        "name": "videoID"
+      }, {
+        "question": "Do you want an 'unlike' button?",
+        "type": "boolean",
+        "name": "unlike"
+      }]
+    },
+    videoPlayer: {
+      "label": "Video Player",
+      "templates": {
+        "client": 'video-player',
+        "server": []
+      }
+    },
+    mediaList: {
+      "label": "Video Search",
+      "templates": {
+        "client": "media-list",
+        "server": "media-list"
+      },
+      "questions": [{
+        "question": "What should the query be?",
+        "type": "userInput",
+        "subtype": "text",
+        "name": "nameLike",
+      }, {
+        "include": "videoPlayer"
+      }, {
+        "question": "Want to include a like button?",
+        "type": "boolean",
+        "conditionals": {
+          "true": {
+            "include": "likeButton",
+            "vars": {
+              "videoID": ""
+            }
+          }
+        }
+      }]
+    }
+  }
+}
