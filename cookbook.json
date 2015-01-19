@@ -2,8 +2,8 @@
   "recipes": {
     "likeButton": {
       "label": "Like Button",
-      "templates: {
-        "client": 'like-button',
+      "templates": {
+        "client": "like-button",
         "server": ["like", "unlike", "check-like"]
       },
       "questions": [{
@@ -17,14 +17,14 @@
         "name": "unlike"
       }]
     },
-    videoPlayer: {
+    "videoPlayer": {
       "label": "Video Player",
       "templates": {
-        "client": 'video-player',
+        "client": "video-player",
         "server": []
       }
     },
-    mediaList: {
+    "mediaList": {
       "label": "Video Search",
       "templates": {
         "client": "media-list",
@@ -34,7 +34,7 @@
         "question": "What should the query be?",
         "type": "userInput",
         "subtype": "text",
-        "name": "nameLike",
+        "name": "nameLike"
       }, {
         "include": "videoPlayer"
       }, {
