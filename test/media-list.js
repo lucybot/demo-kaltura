@@ -1,5 +1,5 @@
 var filter = new Kaltura.objects.KalturaMediaEntryFilter();
-filter.nameLike = <%- mediaList.nameLike %>;
+filter.nameLike = "fsad";
 var pager = new Kaltura.objects.KalturaFilterPager();
 KalturaClient.media.listAction(function(results) {
   if (results.objectType === 'KalturaAPIException') return callback(results);
