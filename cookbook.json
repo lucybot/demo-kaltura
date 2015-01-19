@@ -1,4 +1,6 @@
 {
+  "name": "Kaltura",
+  "languages": ["node"],
   "recipes": {
     "likeButton": {
       "label": "Like Button",
@@ -22,7 +24,20 @@
       "templates": {
         "client": "video-player",
         "server": []
-      }
+      },
+      "questions": [{
+        "question": "What video should the player be for?",
+        "type": "userInput",
+        "subtype": "text",
+        "name": "videoID"
+      }, {
+        "question": "Which skin would you like to use?",
+        "type": "enum",
+        "values": [{
+          "Dark and Wide": "00001",
+          "Dark and Tall": "00002"
+        }]
+      }]
     },
     "mediaList": {
       "label": "Video Search",
