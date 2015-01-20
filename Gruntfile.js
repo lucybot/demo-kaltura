@@ -16,7 +16,21 @@ module.exports = function (grunt) {
      lucy_oven: {
        mediaList: {
          dest: 'test/',
-         recipe: 'mediaList'
+         recipe: 'mediaList',
+         answers: {
+           setup: {
+             "admin_secret": "8d6cb692ab0f41bfa6bde373204c4b40",
+             "partner_id": 1760921,
+             "user_id": "anonymous" 
+           },
+           mediaList: {
+             nameLike: '"Kaltura"',
+             likeButton: false
+           },
+           videoPlayer: {
+             skin: '27723522'
+           }
+         }
        }
      }
   });

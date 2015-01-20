@@ -2,6 +2,7 @@
       filter.nameLike = <%- mediaList.nameLike %>;
       var pager = new Kaltura.objects.KalturaFilterPager();
       KalturaClient.media.listAction(function(results) {
-        if (results.objectType === 'KalturaAPIException') return callback(results);
-        callback(null, results.objects);
+        console.log('list media:' + JSON.stringify(results));
+        if (results.objectType === 'KalturaAPIException') { console.log('err:' + JSON.stringify(results)); throw results; }
+        res.json(results.objects);
       }, filter, pager);

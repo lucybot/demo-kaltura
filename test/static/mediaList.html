@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>
+</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script>
+    var App = angular.module('App', []);
+    App.controller("LucyController", function($scope) {
+      $scope.form = {};
+      $scope.loadData = function() {
+        $.post('media-list', JSON.stringify($scope.form), function(response) {
+          console.log('resp:' + JSON.stringify(response));
+          $scope.result = response;
+          $scope.$apply();
+        }, 'json');
+      }
+    })
+  </script>
+<body ng-app="App">
+  <div ng-controller="LucyController" ng-init="loadData()">
+<div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Search Results</h1>
+            </div>
+        </div>
+
+        <div ng-repeat="video in result">
+          <div class="row">
+            <div class="col-xs-5">
+               <script>
+  App.controller('KalturaVideoController', function($scope) {
+    $scope.loadScript = function(videoID) {
+      var url = 'http://cdnapi.kaltura.com/p/1760921/sp/176092100/embedIframeJs' +
+                '/uiconf_id/27723522/' +
+                '/partner_id/1760921?autoembed=true&entry_id=' + videoID +
+                '&playerId=kaltura_player_' + videoID +
+                '&cache_st=' + videoID +
+                '&width=400&height=333&flashvars[streamerType]=auto';
+      console.log('loading:' + url);
+      $.getScript(url);
+    }
+  })
+</script>
+<div ng-controller="KalturaVideoController" id="kaltura_player_{{ video.id }}" style="width: 400px; height: 333px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject" ng-init="loadScript(video.id)">
+  <span itemprop="name" content="MediaSpace Categories"></span>
+  <span itemprop="description" content="This video describes how to create new categories and add content to your MediaSpace site."></span>
+  <span itemprop="duration" content="162"></span>
+  <span itemprop="thumbnail" content="http://cdnbakmi.kaltura.com/p/1760921/sp/176092100/thumbnail/entry_id/undefined/version/100000/acv/101"></span>
+  <span itemprop="width" content="400"></span>
+  <span itemprop="height" content="333"></span>
+  <img onload="console.log('load img')"></img>
+  <a href="http://corp.kaltura.com/products/video-platform-features">Video Platform</a>
+  <a href="http://corp.kaltura.com/Products/Features/Video-Management">Video Management</a> 
+  <a href="http://corp.kaltura.com/Video-Solutions">Video Solutions</a>
+  <a href="http://corp.kaltura.com/Products/Features/Video-Player">Video Player</a>
+</div>
+            </div>
+            <div class="col-xs-7">
+              <h3>{{ video.name }}</h3>
+              <p>{{ video.description }}</p>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
