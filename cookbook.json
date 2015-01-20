@@ -34,10 +34,17 @@
         "name": "skin",
         "question": "Which skin would you like to use?",
         "type": "enum",
-        "values": [{
-          "Dark and Wide": "00001",
-          "Dark and Tall": "00002"
-        }]
+        "values": {
+          "KDP3 Dark Skin": "27723522",
+          "KDP3 Blue Skin": "27723532",
+          "KDP3 Light Skin": "27723542",
+          "508 Player": "8704822",
+          "Hovering Controls Player": "24666891",
+          "Player with Captions": "24666901",
+          "Widescreen Player - Light Skin": "24666921",
+          "Widescreen Player": "24666881",
+          "Player with no share button": "24666871"
+        }
       }]
     },
     "mediaList": {
