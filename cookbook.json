@@ -10,7 +10,7 @@
       },
       "questions": [{
         "question": "What video should the button apply to?",
-        "type": "text",
+        "type": "string",
         "userInput": true,
         "name": "videoID"
       }, {
@@ -28,7 +28,7 @@
       "questions": [{
         "name": "videoID",
         "question": "What video should the player be for?",
-        "type": "text",
+        "type": "string",
         "userInput": false
       }, {
         "name": "skin",
@@ -56,7 +56,7 @@
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
-        "type": "text",
+        "type": "string",
         "userInput": true
       }, {
         "include": "videoPlayer"
