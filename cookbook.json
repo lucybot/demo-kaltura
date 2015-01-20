@@ -10,8 +10,8 @@
       },
       "questions": [{
         "question": "What video should the button apply to?",
-        "type": "userInput",
-        "subtype": "text",
+        "type": "text",
+        "userInput": true,
         "name": "videoID"
       }, {
         "question": "Do you want an 'unlike' button?",
@@ -28,8 +28,8 @@
       "questions": [{
         "name": "videoID",
         "question": "What video should the player be for?",
-        "type": "userInput",
-        "subtype": "text"
+        "type": "text",
+        "userInput": false
       }, {
         "name": "skin",
         "question": "Which skin would you like to use?",
@@ -56,8 +56,8 @@
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
-        "type": "userInput",
-        "subtype": "text"
+        "type": "text",
+        "userInput": true
       }, {
         "include": "videoPlayer"
       }, {
