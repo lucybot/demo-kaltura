@@ -29,7 +29,7 @@
       },
       "questions": [{
         "question": "What video should the player be for?",
-        "label" "Video ID",
+        "label": "Video ID",
         "name": "videoID",
         "type": "string",
         "userInput": false
