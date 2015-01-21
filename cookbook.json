@@ -10,11 +10,13 @@
       },
       "questions": [{
         "question": "What video should the button apply to?",
+        "label": "Video ID",
         "type": "string",
         "userInput": true,
         "name": "videoID"
       }, {
         "question": "Do you want an 'unlike' button?",
+        "label": "Unlike",
         "type": "boolean",
         "name": "unlike"
       }]
@@ -26,13 +28,15 @@
         "server": []
       },
       "questions": [{
-        "name": "videoID",
         "question": "What video should the player be for?",
+        "label" "Video ID",
+        "name": "videoID",
         "type": "string",
         "userInput": false
       }, {
         "name": "skin",
         "question": "Which skin would you like to use?",
+        "label": "skin",
         "type": "enum",
         "values": {
           "KDP3 Dark Skin": "27723522",
@@ -56,13 +60,16 @@
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
+        "label": "Query",
         "type": "string",
         "userInput": true
       }, {
-        "include": "videoPlayer"
+        "include": "videoPlayer",
+        "label": "Video Player"
       }, {
         "name": "likeButton",
         "question": "Want to include a like button?",
+        "label": "Like Button",
         "type": "boolean",
         "conditionals": {
           "true": [{
