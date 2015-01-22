@@ -86,7 +86,6 @@
         "userInput": true
       }, {
         "include": "videoPlayer",
-        "required": true,
         "label": "Video Player",
         "vars": {
           "videoID": ""
