@@ -3,13 +3,18 @@
   "languages": ["node"],
   "setup": {
     "questions": [{
+      "question": "Welcome! I just need some information about your Kaltura account to get started",
+      "type": "dialogue"
+    }, {
       "question": "What is your partner ID?",
       "name": "partner_id",
-      "type": "string"
+      "type": "string",
+      "required": true
     }, {
       "question": "What is your admin secret?",
       "name": "admin_secret",
-      "type": "string"
+      "type": "string",
+      "required": true
     }]
   },
   "recipes": {
