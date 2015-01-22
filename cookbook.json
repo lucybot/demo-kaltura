@@ -1,6 +1,17 @@
 {
   "name": "Kaltura",
   "languages": ["node"],
+  "setup": {
+    "questions": [{
+      question: "What is your partner ID?",
+      name: "partner_id",
+      type: "string"
+    }, {
+      question: "What is your admin secret?",
+      name: "admin_secret",
+      type: "string"
+    }]
+  },
   "recipes": {
     "likeButton": {
       "label": "Like Button",
