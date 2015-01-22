@@ -12,11 +12,16 @@
     }
   })
 </script>
-<div ng-controller="KalturaVideoController" id="kaltura_player_<%- videoPlayer.videoID || '{{ video.id }}' %>" style="width: 400px; height: 333px;" itemprop="video" itemscope itemtype="http://schema.org/VideoObject" ng-init="loadScript(<%- videoPlayer.videoID || 'video.id' %>)">
+<div ng-controller="KalturaVideoController"
+     id="kaltura_player_<%- videoPlayer.videoID || '{{ video.id }}' %>"
+     style="width: 400px; height: 333px;"
+     itemprop="video" itemscope
+     itemtype="http://schema.org/VideoObject"
+     ng-init="loadScript(<%- videoPlayer.videoID || 'video.id' %>)">
   <span itemprop="name" content="MediaSpace Categories"></span>
-  <span itemprop="description" content="This video describes how to create new categories and add content to your MediaSpace site."></span>
-  <span itemprop="duration" content="162"></span>
-  <span itemprop="thumbnail" content="http://cdnbakmi.kaltura.com/p/1760921/sp/176092100/thumbnail/entry_id/<%- videoPlayer.videoID %>/version/100000/acv/101"></span>
+  <span itemprop="description" content="{{ video.description }}"></span>
+  <span itemprop="duration" content="{{ video.duration }}"></span>
+  <span itemprop="thumbnail" content="http://cdnbakmi.kaltura.com/p/<%- setup.parnter_id %>/sp/<%- setup.partner_id %>00/thumbnail/entry_id/<%- videoPlayer.videoID %>/version/100000/acv/101"></span>
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
   <img onload="console.log('load img')"></img>
