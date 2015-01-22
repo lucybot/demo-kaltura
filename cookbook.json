@@ -85,7 +85,10 @@
         "userInput": true
       }, {
         "include": "videoPlayer",
-        "label": "Video Player"
+        "label": "Video Player",
+        "vars": {
+          "videoID": ""
+        }
       }, {
         "name": "likeButton",
         "question": "Want to include a like button?",
