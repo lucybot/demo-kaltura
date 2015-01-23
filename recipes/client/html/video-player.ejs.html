@@ -1,32 +1,26 @@
-<script>
-  App.controller('KalturaVideoController', function($scope) {
-    $scope.loadScript = function(videoID) {
-      var url = 'http://cdnapi.kaltura.com/p/<%- setup.partner_id %>/sp/<%- setup.partner_id %>00/embedIframeJs' +
-                '/uiconf_id/<%- videoPlayer.skin %>/' +
-                '/partner_id/1760921?autoembed=true&entry_id=' + videoID +
-                '&playerId=kaltura_player_' + videoID +
-                '&cache_st=' + videoID +
-                '&width=400&height=333&flashvars[streamerType]=auto';
-      console.log('loading:' + url);
-      $.getScript(url);
-    }
-  })
+<script src="<%-'http://cdnapi.kaltura.com' +
+                '/p/' + setup.partner_id.val +
+                '/sp/' + setup.partner_id.val  + '00' +
+                '/embedIframeJs' +
+                '/uiconf_id/' + videoPlayer.skin.val +
+                '/partner_id/' + setup.partner_id.val +
+                '?autoembed=true&entry_id=' + videoPlayer.videoID.val +
+                '&playerId=kaltura_player_' + videoPlayer.videoID.val +
+                '&cache_st=' + videoPlayer.videoID.val +
+                '&width=400&height=333' +
+                '&flashvars[streamerType]=auto' %>">
 </script>
 <div ng-controller="KalturaVideoController"
-     id="kaltura_player_<%- videoPlayer.videoID || '{{ video.id }}' %>"
+     id="kaltura_player_<%- videoPlayer.videoID.val %>"
      style="width: 400px; height: 333px;"
      itemprop="video" itemscope
-     itemtype="http://schema.org/VideoObject"
-     ng-init="loadScript(<%- videoPlayer.videoID || 'video.id' %>)">
+     itemtype="http://schema.org/VideoObject">
   <span itemprop="name" content="MediaSpace Categories"></span>
   <span itemprop="description" content="{{ video.description }}"></span>
   <span itemprop="duration" content="{{ video.duration }}"></span>
-  <span itemprop="thumbnail" content="http://cdnbakmi.kaltura.com/p/<%- setup.parnter_id %>/sp/<%- setup.partner_id %>00/thumbnail/entry_id/<%- videoPlayer.videoID %>/version/100000/acv/101"></span>
+  <span itemprop="thumbnail"
+        content="http://cdnbakmi.kaltura.com/p/<%- setup.partner_id.val %>/sp/<%- setup.partner_id.val %>00/thumbnail/entry_id/<%- videoPlayer.videoID.val %>/version/100000/acv/101">
+  </span>
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
-  <img onload="console.log('load img')"></img>
-  <a href="http://corp.kaltura.com/products/video-platform-features">Video Platform</a>
-  <a href="http://corp.kaltura.com/Products/Features/Video-Management">Video Management</a> 
-  <a href="http://corp.kaltura.com/Video-Solutions">Video Solutions</a>
-  <a href="http://corp.kaltura.com/Products/Features/Video-Player">Video Player</a>
 </div>

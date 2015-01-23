@@ -10,7 +10,8 @@
         <div ng-repeat="video in result">
           <div class="row">
             <div class="col-xs-5">
-<%- include('./video-player.ejs.html'); %>
+<% videoPlayer.videoID.val = '{{ video.id }}' -%>
+<%- Lucy.include('/client/html/video-player.ejs.html', 12); %>
             </div>
             <div class="col-xs-7">
               <h3>{{ video.name }}</h3>
