@@ -4,17 +4,19 @@
   "setup": {
     "questions": [{
       "question": "Welcome! I just need some information about your Kaltura account to get started",
-      "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|overview",
+      "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
       "label": "Welcome",
       "type": "dialogue"
     }, {
       "question": "What is your partner ID?",
+      "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
       "name": "partner_id",
       "label": "Partner ID",
       "type": "string",
       "required": true
     }, {
       "question": "What is your admin secret?",
+      "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
       "name": "admin_secret",
       "label": "Admin Secret",
       "type": "string",
@@ -56,7 +58,7 @@
       }, {
         "name": "skin",
         "question": "Which skin would you like to use?",
-        "label": "skin",
+        "label": "Skin",
         "type": "enum",
         "values": {
           "KDP3 Dark Skin": "27723522",
