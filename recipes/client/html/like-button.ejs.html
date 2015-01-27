@@ -1,4 +1,4 @@
-<% if (likeButton.videoPlayer) { -%>
+<% if (likeButton.includeVideoPlayer.val) { -%>
 <%-  Lucy.include('client/html/video-player.ejs.html', 0, {videoPlayer: likeButton.videoPlayer}); %>
 <% } %>
 <a ng-click="result.liked ? like() : unlike()"
