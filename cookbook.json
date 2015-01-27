@@ -37,6 +37,9 @@
         "userInput": true,
         "name": "videoID"
       }, {
+        "include": "videoPlayer",
+        "label": "Video Player"
+      }, {
         "question": "Do you want an 'unlike' button?",
         "label": "Unlike",
         "type": "boolean",
