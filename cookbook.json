@@ -42,8 +42,8 @@
         "name": "videoPlayer",
         "label": "Video Player",
         "vars": {
-          "likeButton": false,
-          "videoID": {"userInput": true}
+          "includeLikeButton": {"val": false},
+          "videoID": {"inherit": "videoID"}
         }
       }, {
         "question": "Do you want an 'unlike' button?",
