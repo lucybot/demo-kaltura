@@ -23,6 +23,6 @@
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
 </div>
-<% if (videoPlayer.includeLikeButton) { -%>
+<% if (videoPlayer.includeLikeButton.val) { -%>
 <%-  Lucy.include('client/html/like-button.ejs.html', 0) %>
 <% } -%>
