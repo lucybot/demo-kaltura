@@ -39,6 +39,7 @@
         "required": true
       }, {
         "include": "videoPlayer",
+        "name": "videoPlayer",
         "label": "Video Player",
         "vars": {
           "likeButton": false,
@@ -87,6 +88,7 @@
         "conditionals": {
           "true": [{
             "include": "likeButton",
+            "name": "likeButton",
             "vars": {
               "videoID": "",
               "videoPlayer": false
@@ -110,6 +112,7 @@
         "userInput": true
       }, {
         "include": "videoPlayer",
+        "name": "videoPlayer",
         "label": "Video Player",
         "vars": {
           "videoID": ""
