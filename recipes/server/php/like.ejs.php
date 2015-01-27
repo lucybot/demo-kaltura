@@ -1,3 +1,3 @@
 $likePlugin = KalturaLikeClientPlugin::get($KalturaClient);
-$result = $likePlugin->like->checklikeexists(<%- likeButton.videoID %>);
+$result = $likePlugin->like->like(<%- likeButton.videoID %>);
 echo json_encode($result);
