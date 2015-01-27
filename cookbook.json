@@ -41,7 +41,7 @@
         "include": "videoPlayer",
         "label": "Video Player",
         "vars": {
-          "likeButton": true,
+          "likeButton": false,
           "videoID": ""
         }
       }, {
@@ -88,7 +88,8 @@
           "true": [{
             "include": "likeButton",
             "vars": {
-              "videoID": ""
+              "videoID": "",
+              "videoPlayer": false
             }
           }]
         }
