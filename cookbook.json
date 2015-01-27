@@ -34,8 +34,9 @@
         "question": "What video should the button apply to?",
         "label": "Video ID",
         "type": "string",
-        "userInput": true,
-        "name": "videoID"
+        "name": "videoID",
+        "placeholder": "1_eg2xfvy",
+        "required": true
       }, {
         "include": "videoPlayer",
         "label": "Video Player"
