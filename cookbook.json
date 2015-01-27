@@ -39,7 +39,10 @@
         "required": true
       }, {
         "include": "videoPlayer",
-        "label": "Video Player"
+        "label": "Video Player",
+        "vars": {
+          "likeButton": true
+        }
       }, {
         "question": "Do you want an 'unlike' button?",
         "label": "Unlike",
@@ -75,6 +78,19 @@
           "Widescreen Player": "24666881",
           "Player with no share button": "24666871"
         }
+      }, {
+        "name": "likeButton",
+        "question": "Want to include a like button?",
+        "label": "Like Button",
+        "type": "boolean",
+        "conditionals": {
+          "true": [{
+            "include": "likeButton",
+            "vars": {
+              "videoID": ""
+            }
+          }]
+        }
       }]
     },
     "mediaList": {
@@ -95,19 +111,6 @@
         "label": "Video Player",
         "vars": {
           "videoID": ""
-        }
-      }, {
-        "name": "likeButton",
-        "question": "Want to include a like button?",
-        "label": "Like Button",
-        "type": "boolean",
-        "conditionals": {
-          "true": [{
-            "include": "likeButton",
-            "vars": {
-              "videoID": ""
-            }
-          }]
         }
       }]
     }
