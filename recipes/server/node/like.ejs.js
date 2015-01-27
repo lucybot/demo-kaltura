@@ -1,3 +1,3 @@
 KalturaClient.like.like(function(result) {
-  res.json({liked: result});
+<%-  Lucy.return("{liked: result}"); %>
 }, <%- likeButton.videoID.code %>);
