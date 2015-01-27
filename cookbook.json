@@ -41,7 +41,8 @@
         "include": "videoPlayer",
         "label": "Video Player",
         "vars": {
-          "likeButton": true
+          "likeButton": true,
+          "videoID": ""
         }
       }, {
         "question": "Do you want an 'unlike' button?",
