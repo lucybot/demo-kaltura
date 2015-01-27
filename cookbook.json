@@ -39,7 +39,7 @@
         "required": true
       }, {
         "include": "videoPlayer",
-        "name": "videoPlayer",
+        "name": "includeVideoPlayer",
         "label": "Video Player",
         "vars": {
           "includeLikeButton": {"val": false},
@@ -91,7 +91,7 @@
             "name": "likeButton",
             "vars": {
               "videoID": {"inherit": "videoID"},
-              "videoPlayer": {"val": false}
+              "includeVideoPlayer": {"val": false}
             }
           }]
         }
