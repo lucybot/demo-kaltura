@@ -1,1 +1,1 @@
-echo json_encode($client->media->add($entry));
+echo json_encode($KalturaClient->media->add(<%- mediaList.entryId.code %>));
