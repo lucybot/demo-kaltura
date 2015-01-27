@@ -81,7 +81,7 @@
           "Player with no share button": "24666871"
         }
       }, {
-        "name": "likeButton",
+        "name": "includeLikeButton",
         "question": "Want to include a like button?",
         "label": "Like Button",
         "type": "boolean",
