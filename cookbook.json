@@ -43,7 +43,7 @@
         "label": "Video Player",
         "vars": {
           "likeButton": false,
-          "videoID": {"val": ""}
+          "videoID": {"userInput": true}
         }
       }, {
         "question": "Do you want an 'unlike' button?",
@@ -90,8 +90,8 @@
             "include": "likeButton",
             "name": "likeButton",
             "vars": {
-              "videoID": {"val": ""},
-              "videoPlayer": false
+              "videoID": {"inherit": "videoID"},
+              "videoPlayer": {"val": false}
             }
           }]
         }
@@ -115,7 +115,7 @@
         "name": "videoPlayer",
         "label": "Video Player",
         "vars": {
-          "videoID": {"val": ""}
+          "videoID": {"serverInput": true}
         }
       }]
     }
