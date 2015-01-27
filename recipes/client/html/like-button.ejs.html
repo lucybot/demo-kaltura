@@ -1,3 +1,6 @@
+<% if (likeButton.videoPlayer) { -%>
+<%-  Lucy.include('client/html/video-player.ejs.html', 0);
+<% } %>
 <a ng-click="result.liked ? like() : unlike()"
    class="{{ result.liked ? 'btn-warning' : 'btn-success'}}">
      {{ result.liked ? 'Unlike' : 'Like' }}
