@@ -1,13 +1,12 @@
-<div ng-repeat="video in result">
+<%- Lucy.for("video in result") %>
   <div class="row">
     <div class="col-xs-7">
-      <h3>{{ video.name }}</h3>
-      <p>{{ video.description }}</p>
+      <h3><%- Lucy.result('video.name') %></h3>
+      <p><%- Lucy.result('video.description') %></p>
     </div>
     <div class="col-xs-5">
-<% videoPlayer.videoID.val = '{{ video.id }}' -%>
-<%- Lucy.include('/client/html/video-player.ejs.html', 6); %>
+<%- Lucy.include('/client/html/video-player.ejs.html', {tabs: 6, result: 'video'}); %>
     </div>
   </div>
   <hr>
-</div>
+<%- Lucy.rof("video in result") %>
