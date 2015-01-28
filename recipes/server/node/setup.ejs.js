@@ -4,7 +4,7 @@ var Kaltura = require('./Kaltura/lib/KalturaClient.js');
 var KalturaCreds = {
   partner_id: <%- Lucy.answer('setup', 'partner_id') %>,
   user_id: <%- Lucy.answer('setup', 'user_id') %>,
-  admin_secret: <%- Lucy.answer('setup', 'admin_secret') %>',
+  admin_secret: <%- Lucy.answer('setup', 'admin_secret') %>,
 }
 
 var config = new Kaltura.KalturaConfiguration(KalturaCreds.partner_id);
