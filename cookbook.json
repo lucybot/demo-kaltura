@@ -101,7 +101,7 @@
       "label": "Video Search",
       "templates": {
         "client": "media-list",
-        "server": "media-list"
+        "server": "list-media"
       },
       "questions": [{
         "name": "nameLike",
