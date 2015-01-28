@@ -2,14 +2,19 @@
 <%-  Lucy.include('client/html/video-player.ejs.html', 0); %>
 <% } %>
 <%- Lucy.if("result.liked") %>
+<% if (likeButton.includeUnlikeButton.val) { -%>
 <a <%- Lucy.click("unlike") %>
-   class="btn-warning">
+   class="btn btn-warning">
   Unlike
 </a>
+<% } else { -%>
+<a class="btn btn-success disabled">
+  Liked
+<% } -%>
 <%- Lucy.fi("result.liked") %>
 <%- Lucy.if("!result.liked") %>
 <a <%- Lucy.click("like") %>
-   class="btn-success">
+   class="btn btn-success">
   Like
 </a>
 <%- Lucy.fi("!result.liked") %>
