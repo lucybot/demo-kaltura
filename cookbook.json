@@ -49,7 +49,7 @@
         "question": "Do you want an 'unlike' button?",
         "label": "Unlike",
         "type": "boolean",
-        "name": "unlike"
+        "name": "includeUnlikeButton"
       }]
     },
     "videoPlayer": {
