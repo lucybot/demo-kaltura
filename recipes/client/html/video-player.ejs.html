@@ -1,28 +1,28 @@
 <script src="<%-'http://cdnapi.kaltura.com' +
-                '/p/' + Lucy.answer(setup.partner_id) +
-                '/sp/' + Lucy.answer(setup.partner_id)  + '00' +
+                '/p/' + Lucy.answer('setup', 'partner_id') +
+                '/sp/' + Lucy.answer('setup', 'partner_id')  + '00' +
                 '/embedIframeJs' +
-                '/uiconf_id/' + Lucy.answer(videoPlayer.skin) +
-                '/partner_id/' + Lucy.answer(setup.partner_id) +
-                '?autoembed=true&entry_id=' + Lucy.answer(videoPlayer.videoID) +
-                '&playerId=kaltura_player_' + Lucy.answer(videoPlayer.videoID) +
-                '&cache_st=' + Lucy.answer(videoPlayer.videoID) +
+                '/uiconf_id/' + Lucy.answer('videoPlayer', 'skin') +
+                '/partner_id/' + Lucy.answer('setup', 'partner_id') +
+                '?autoembed=true&entry_id=' + Lucy.answer('videoPlayer', 'videoID') +
+                '&playerId=kaltura_player_' + Lucy.answer('videoPlayer', 'videoID') +
+                '&cache_st=' + Lucy.answer('videoPlayer', 'videoID') +
                 '&width=400&height=333' +
                 '&flashvars[streamerType]=auto' %>">
 </script>
-<div id="kaltura_player_<%- Lucy.answer(videoPlayer.videoID) %>"
+<div id="kaltura_player_<%- Lucy.answer('videoPlayer', 'videoID') %>"
      style="width: 400px; height: 333px;"
      itemprop="video" itemscope
      itemtype="http://schema.org/VideoObject">
   <span itemprop="name" content="MediaSpace Categories"></span>
-  <span itemprop="description" content="Lucy.result(description)"></span>
-  <span itemprop="duration" content="Lucy.result(duration)"></span>
+  <span itemprop="description" content="<%- Lucy.result('description') %>"></span>
+  <span itemprop="duration" content="<%- Lucy.result('duration') %>"></span>
   <span itemprop="thumbnail"
-        content="http://cdnbakmi.kaltura.com/p/<%- Lucy.answer(setup.partner_id) %>/sp/<%- Lucy.answer(setup.partner_id) %>00/thumbnail/entry_id/<%- Lucy.answer(videoPlayer.videoID) %>/version/100000/acv/101">
+        content="http://cdnbakmi.kaltura.com/p/<%- Lucy.answer('setup', 'partner_id') %>/sp/<%- Lucy.answer('setup', 'partner_id') %>00/thumbnail/entry_id/<%- Lucy.answer('videoPlayer', 'videoID') %>/version/100000/acv/101">
   </span>
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
 </div>
 <% if (videoPlayer.includeLikeButton.val) { -%>
-<%-  Lucy.include('client/html/like-button.ejs.html', 0) %>
+<%-  Lucy.include('like-button') %>
 <% } -%>

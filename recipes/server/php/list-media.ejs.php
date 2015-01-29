@@ -1,4 +1,4 @@
 $filter = new KalturaMediaEntryFilter();
-$filter->nameLike = <%- mediaList.nameLike.code %>;
+$filter->nameLike = <%- Lucy.answer('mediaList', 'nameLike') %>;
 $result = $KalturaClient->media->listAction($filter, null);
 <%- Lucy.returnCode("$result") %>;
