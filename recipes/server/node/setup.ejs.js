@@ -12,5 +12,8 @@ KalturaClient = new Kaltura.KalturaClient(config);
 KalturaClient.session.start(function(session) {
   KalturaClient.setKs(session);
   Session = session;
-}, KalturaCreds.admin_secret, KalturaCreds.user_id, KalturaConstants.KalturaSessionType.ADMIN,
-   KalturaCreds.partner_id, KalturaCreds.session_length);
+}, KalturaCreds.admin_secret,
+   KalturaCreds.user_id,
+   KalturaConstants.KalturaSessionType.ADMIN,
+   KalturaCreds.partner_id,
+   KalturaCreds.session_length);
