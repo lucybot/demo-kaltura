@@ -1,5 +1,5 @@
-var KalturaConstants = require('./Kaltura/lib/KalturaTypes.js');
-var Kaltura = require('./Kaltura/lib/KalturaClient.js');
+var KalturaConstants = require('./lib/KalturaTypes.js');
+var Kaltura = require('./lib/KalturaClient.js');
 
 var KalturaCreds = {
   partner_id: <%- setup.partner_id.code %>,
