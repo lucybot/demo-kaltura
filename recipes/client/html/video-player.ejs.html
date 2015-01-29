@@ -15,8 +15,8 @@
      itemprop="video" itemscope
      itemtype="http://schema.org/VideoObject">
   <span itemprop="name" content="MediaSpace Categories"></span>
-  <span itemprop="description" content="Lucy.result(description)"></span>
-  <span itemprop="duration" content="Lucy.result(duration)"></span>
+  <span itemprop="description" content="<%- Lucy.result(description) %>"></span>
+  <span itemprop="duration" content="<%- Lucy.result(duration) %>"></span>
   <span itemprop="thumbnail"
         content="http://cdnbakmi.kaltura.com/p/<%- Lucy.answer('setup', 'partner_id') %>/sp/<%- Lucy.answer('setup', 'partner_id') %>00/thumbnail/entry_id/<%- Lucy.answer('videoPlayer', 'videoID') %>/version/100000/acv/101">
   </span>
