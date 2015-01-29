@@ -2,12 +2,11 @@
                 '/p/' + Lucy.result('partnerId') +
                 '/sp/' + Lucy.result('partnerId')  + '00' +
                 '/embedIframeJs' +
-                '/uiconf_id/' + Lucy.result('partnerId') +
+                '/uiconf_id/' + Lucy.answer('videoPlayer', 'skin') +
                 '/partner_id/' + Lucy.result('partnerId') +
                 '?autoembed=true&entry_id=' + Lucy.result('id') +
                 '&playerId=kaltura_player_' + Lucy.result('id') +
                 '&width=400&height=333' +
-                '&cache_st=1422561766' +
                 '&flashvars[streamerType]=auto' %>">
 </script>
 <div id="kaltura_player_<%- Lucy.result('id') %>"
