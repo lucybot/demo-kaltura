@@ -5,7 +5,7 @@
       <p><%- Lucy.variable('video.description') %></p>
     </div>
     <div class="col-xs-5">
-<%- Lucy.include('/client/html/video-player.ejs.html', {tabs: 6, result: 'video'}); %>
+<%- Lucy.include('video-player', {tabs: 6, result: 'video'}); %>
     </div>
   </div>
   <hr>
