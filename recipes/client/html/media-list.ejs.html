@@ -1,8 +1,8 @@
 <%- Lucy.for("video in result") %>
   <div class="row">
     <div class="col-xs-7">
-      <h3><%- Lucy.result('video.name') %></h3>
-      <p><%- Lucy.result('video.description') %></p>
+      <h3><%- Lucy.variable('video.name') %></h3>
+      <p><%- Lucy.variable('video.description') %></p>
     </div>
     <div class="col-xs-5">
 <%- Lucy.include('/client/html/video-player.ejs.html', {tabs: 6, result: 'video'}); %>
