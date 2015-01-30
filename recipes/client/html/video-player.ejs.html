@@ -1,24 +1,15 @@
-<script src="<%-'http://cdnapi.kaltura.com' +
-                '/p/' + Lucy.answer('setup', 'partner_id') +
-                '/sp/' + Lucy.answer('setup', 'partner_id')  + '00' +
-                '/embedIframeJs' +
-                '/uiconf_id/' + Lucy.answer('videoPlayer', 'skin') +
-                '/partner_id/' + Lucy.answer('setup', 'partner_id') +
-                '?autoembed=true&entry_id=' + Lucy.answer('videoPlayer', 'videoID') +
-                '&playerId=kaltura_player_' + Lucy.answer('videoPlayer', 'videoID') +
-                '&cache_st=' + Lucy.answer('videoPlayer', 'videoID') +
-                '&width=400&height=333' +
-                '&flashvars[streamerType]=auto' %>">
-</script>
-<div id="kaltura_player_<%- Lucy.answer('videoPlayer', 'videoID') %>"
+<div id="kaltura_player_<%- Lucy.result('id') %>"
+<% if (Lucy.language.client === 'html-angular') { -%>
+     ng-controller="VideoController"
+     ng-init="loadScript(<%- Lucy.result() %>)"
+<% } -%>
      style="width: 400px; height: 333px;"
      itemprop="video" itemscope
      itemtype="http://schema.org/VideoObject">
   <span itemprop="name" content="MediaSpace Categories"></span>
   <span itemprop="description" content="<%- Lucy.result('description') %>"></span>
   <span itemprop="duration" content="<%- Lucy.result('duration') %>"></span>
-  <span itemprop="thumbnail"
-        content="http://cdnbakmi.kaltura.com/p/<%- Lucy.answer('setup', 'partner_id') %>/sp/<%- Lucy.answer('setup', 'partner_id') %>00/thumbnail/entry_id/<%- Lucy.answer('videoPlayer', 'videoID') %>/version/100000/acv/101">
+  <span itemprop="thumbnail" content="<%- Lucy.result('thumbnailUrl') %>">
   </span>
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
@@ -26,3 +17,43 @@
 <% if (videoPlayer.includeLikeButton.val) { -%>
 <%-  Lucy.include('like-button') %>
 <% } -%>
+<%
+console.log('script func');
+var scriptUrl = function(id, partnerId) { 
+  var ret = 'http://cdnapi.kaltura.com' +
+         '/p/' + partnerId +
+         '/sp/' + partnerId  + '00' +
+         '/embedIframeJs' +
+         '/uiconf_id/' + Lucy.answer('videoPlayer', 'skin') +
+         '/partner_id/' + partnerId +
+         '?autoembed=true&entry_id=' + id +
+         '&playerId=kaltura_player_' + id +
+         '&width=400&height=333' +
+         '&flashvars[streamerType]=auto'
+  console.log('script:' + ret);
+  return ret;
+}
+
+-%>
+<% if (Lucy.language.client !== 'html-angular') { %>
+<script src="<%- scriptUrl(Lucy.result('id'), Lucy.result('partnerId')) %>">
+</script>
+<% } else { -%>
+<script>
+app.controller('VideoController', function($scope) {
+  $scope.loadScript = function(video) {
+    var url = 'http://cdnapi.kaltura.com' +
+         '/p/' + video.partnerId +
+         '/sp/' + video.partnerId  + '00' +
+         '/embedIframeJs' +
+         '/uiconf_id/<%- Lucy.answer('videoPlayer', 'skin') %>' +
+         '/partner_id/' + video.partnerId +
+         '?autoembed=true&entry_id=' + video.id +
+         '&playerId=kaltura_player_' + video.id +
+         '&width=400&height=333' +
+         '&flashvars[streamerType]=auto';
+    $.getScript(url);
+  }
+})
+</script>
+<% }        -%>
