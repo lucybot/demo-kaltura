@@ -56,7 +56,7 @@
     },
     "likeButton": {
       "label": "Like Button",
-      "data": "checkLike"
+      "data": "checkLike",
       "actions": ["like", "unlike"],
       "template": "video-player",
       "questions": [{
