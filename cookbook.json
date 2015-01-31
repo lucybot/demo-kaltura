@@ -68,7 +68,6 @@
         "required": true
       }, {
         "include": "videoPlayer",
-        "name": "includeVideoPlayer",
         "label": "Video Player",
         "vars": {
           "includeLikeButton": {"val": true},
