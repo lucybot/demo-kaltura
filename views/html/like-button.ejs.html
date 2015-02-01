@@ -1,5 +1,5 @@
 <%- Lucy.if("result.liked") %>
-<% if (includeUnlikeButton) { -%>
+<% if (answers.includeUnlikeButton.val) { -%>
 <a <%- Lucy.click("unlike") %>
    class="btn btn-warning">
   Unlike

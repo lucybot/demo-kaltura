@@ -14,7 +14,7 @@
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
 </div>
-<% if (videoPlayer.includeLikeButton.val) { -%>
+<% if (answers.includeLikeButton.val) { -%>
 <%-  Lucy.include('like-button', {data: {action: "check-like",
                                          inputs: {videoID: Lucy.result('id')}
                                         }}) %>
