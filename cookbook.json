@@ -31,6 +31,37 @@
       }]
     }
   },
+  "views": {
+    "videoPlayer": {
+      "label": "Video Player",
+      "template": "video-player",
+      "inputs": [{
+        "name": "videoID"
+      }, {
+        "name": "partnerID"
+      }, {
+        "name": "skin"
+      }, {
+        "name": "includeLikeButton",
+        "type": "boolean"
+      }]
+    },
+    "mediaList": {
+      "label": "Video Search",
+      "template": "media-list",
+      "inputs": [{
+        "name": "videos",
+        "type": "array"
+      }]
+    },
+    "likeButton": {
+      "label": "Like Button",
+      "template": "like-button",
+      "inputs": [{
+        "name": "includeUnlikeButton"
+      }]
+    }
+  },
   "recipes": {
     "setup": {
       "questions": [{
@@ -56,9 +87,31 @@
     },
     "likeButton": {
       "label": "Like Button",
-      "data": "checkLike",
-      "actions": ["like", "unlike"],
-      "template": "video-player",
+      "actions": {
+        "like": {
+          "inputs": {
+            "videoID": {}
+          }
+        },
+        "unlike": {
+          "inputs": {
+            "videoID": {}
+          }
+        },
+        "checkLike": {
+          "data": true
+          "inputs": {
+            "videoID": {}
+          }
+        }
+      },
+      "view": {
+        "name": "videoPlayer",
+        "inputs": {
+          "includeLikeButton": {"val": true},
+          "videoID": {"answer": "videoID"}
+        }
+      },
       "questions": [{
         "question": "What video is the button for?",
         "label": "Video ID",
@@ -69,10 +122,6 @@
       }, {
         "include": "videoPlayer",
         "label": "Video Player",
-        "vars": {
-          "includeLikeButton": {"val": true},
-          "videoID": {"inherit": "videoID"}
-        }
       }, {
         "question": "Do you want an 'unlike' button?",
         "label": "Unlike",
@@ -82,7 +131,13 @@
     },
     "videoPlayer": {
       "label": "Video Player",
-      "template": "video-player",
+      "actions": {},
+      "view": {
+        "name": "videoPlayer",
+        "inputs": {
+          "skin": {}
+        } 
+      },
       "questions": [{
         "question": "What video should the player be for?",
         "label": "Video ID",
@@ -113,7 +168,7 @@
           "true": [{
             "include": "likeButton",
             "name": "likeButton",
-            "vars": {
+            "inputs": {
               "videoID": {"inherit": "videoID"},
               "includeVideoPlayer": {"val": true}
             }
@@ -123,8 +178,17 @@
     },
     "mediaList": {
       "label": "Video Search",
-      "template": "media-list",
-      "data": "listMedia",
+      "actions": {
+        "listMedia": {
+          "data": true
+        }
+      },
+      "view": {
+        "name": "mediaList",
+        "inputs": {
+          "videos": {"result": "listMedia"}
+        }
+      },
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
@@ -136,7 +200,7 @@
         "include": "videoPlayer",
         "name": "videoPlayer",
         "label": "Video Player",
-        "vars": {
+        "inputs": {
           "videoID": {"serverInput": true}
         }
       }]
