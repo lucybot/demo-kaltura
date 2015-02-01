@@ -1,67 +1,5 @@
 {
   "name": "Kaltura",
-  "actions": {
-    "listMedia": {
-      "label": "List Media",
-      "template": "list-media",
-      "inputs": [{
-        "name": "nameLike",
-        "type": "string"
-      }]
-    },
-    "like": {
-      "label": "Like",
-      "template": "like",
-      "inputs": [{
-        "name": "videoID"
-      }]
-    },
-    "unlike": {
-      "label": "Unlike",
-      "template": "unlike",
-      "inputs": [{
-        "name": "videoID"
-      }]
-    },
-    "checkLike": {
-      "label": "Check Like",
-      "template": "check-like",
-      "inputs": [{
-        "name": "videoID"
-      }]
-    }
-  },
-  "views": {
-    "videoPlayer": {
-      "label": "Video Player",
-      "template": "video-player",
-      "inputs": [{
-        "name": "videoID"
-      }, {
-        "name": "partnerID"
-      }, {
-        "name": "skin"
-      }, {
-        "name": "includeLikeButton",
-        "type": "boolean"
-      }]
-    },
-    "mediaList": {
-      "label": "Video Search",
-      "template": "media-list",
-      "inputs": [{
-        "name": "videos",
-        "type": "array"
-      }]
-    },
-    "likeButton": {
-      "label": "Like Button",
-      "template": "like-button",
-      "inputs": [{
-        "name": "includeUnlikeButton"
-      }]
-    }
-  },
   "recipes": {
     "setup": {
       "questions": [{
@@ -72,76 +10,23 @@
       }, {
         "question": "What is your partner ID?",
         "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "name": "partner_id",
+        "name": "partnerID",
         "label": "Partner ID",
         "type": "string",
         "required": true
       }, {
         "question": "What is your admin secret?",
         "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "name": "admin_secret",
+        "name": "adminSecret",
         "label": "Admin Secret",
         "type": "string",
         "required": true
       }]
     },
-    "likeButton": {
-      "label": "Like Button",
-      "actions": {
-        "like": {
-          "inputs": {
-            "videoID": {}
-          }
-        },
-        "unlike": {
-          "inputs": {
-            "videoID": {}
-          }
-        },
-        "checkLike": {
-          "inputs": {
-            "videoID": {}
-          }
-        }
-      },
-      "view": {
-        "name": "likeButton",
-        "inputs": {
-          "videoID": {},
-          "includeLikeButton": {}
-        }
-      },
-      "questions": [{
-        "question": "What video is the button for?",
-        "label": "Video ID",
-        "type": "string",
-        "name": "videoID",
-        "placeholder": "1_eg2xfvy",
-        "required": true
-      }, {
-        "include": "videoPlayer",
-        "label": "Video Player",
-        "inputs": {
-          "videoID": {"answer": "videoID"}
-          "includeLikeButton": {"val": true}
-        }
-      }, {
-        "question": "Do you want an 'unlike' button?",
-        "label": "Unlike",
-        "type": "boolean",
-        "name": "includeUnlikeButton"
-      }]
-    },
     "videoPlayer": {
       "label": "Video Player",
-      "actions": {},
-      "view": {
-        "name": "videoPlayer",
-        "inputs": {
-          "skin": {},
-          "includeLikeButton": {}
-        } 
-      },
+      "actions": [],
+      "view": "video-player",
       "questions": [{
         "question": "What video should the player be for?",
         "label": "Video ID",
@@ -180,19 +65,36 @@
         }
       }]
     },
+    "likeButton": {
+      "label": "Like Button",
+      "actions": ["like", "unlike", "check-like"],
+      "view": "video-player",
+      "questions": [{
+        "question": "What video is the button for?",
+        "label": "Video ID",
+        "type": "string",
+        "name": "videoID",
+        "placeholder": "1_eg2xfvy",
+        "required": true
+      }, {
+        "include": "videoPlayer",
+        "label": "Video Player",
+        "inputs": {
+          "videoID": {"answer": "videoID"}
+          "includeLikeButton": {"val": true}
+        }
+      }, {
+        "question": "Do you want an 'unlike' button?",
+        "label": "Unlike",
+        "type": "boolean",
+        "name": "includeUnlikeButton"
+      }]
+    },
     "mediaList": {
       "label": "Video Search",
-      "actions": {
-        "listMedia": {
-          "data": true
-        }
-      },
-      "view": {
-        "name": "mediaList",
-        "inputs": {
-          "nameLike": {}
-        }
-      },
+      "actions": ["list-media"],
+      "data": "list-media",
+      "view": "media-list",
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
