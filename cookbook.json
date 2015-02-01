@@ -80,7 +80,7 @@
         "include": "videoPlayer",
         "label": "Video Player",
         "inputs": {
-          "videoID": {"answer": "videoID"}
+          "videoID": {"answer": "videoID"},
           "includeLikeButton": {"val": true}
         }
       }, {
