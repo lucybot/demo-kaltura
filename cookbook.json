@@ -99,7 +99,7 @@
           }
         },
         "checkLike": {
-          "data": true
+          "data": true,
           "inputs": {
             "videoID": {}
           }
@@ -186,7 +186,7 @@
       "view": {
         "name": "mediaList",
         "inputs": {
-          "videos": {"result": "listMedia"}
+          "nameLike": {}
         }
       },
       "questions": [{
