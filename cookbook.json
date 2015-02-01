@@ -99,17 +99,16 @@
           }
         },
         "checkLike": {
-          "data": true,
           "inputs": {
             "videoID": {}
           }
         }
       },
       "view": {
-        "name": "videoPlayer",
+        "name": "likeButton",
         "inputs": {
-          "includeLikeButton": {"val": true},
-          "videoID": {"answer": "videoID"}
+          "videoID": {},
+          "includeLikeButton": {}
         }
       },
       "questions": [{
@@ -122,6 +121,10 @@
       }, {
         "include": "videoPlayer",
         "label": "Video Player",
+        "inputs": {
+          "videoID": {"answer": "videoID"}
+          "includeLikeButton": {"val": true}
+        }
       }, {
         "question": "Do you want an 'unlike' button?",
         "label": "Unlike",
@@ -135,7 +138,8 @@
       "view": {
         "name": "videoPlayer",
         "inputs": {
-          "skin": {}
+          "skin": {},
+          "includeLikeButton": {}
         } 
       },
       "questions": [{
