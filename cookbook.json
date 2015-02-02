@@ -68,7 +68,9 @@
     "likeButton": {
       "label": "Like Button",
       "actions": ["like", "unlike", "check-like"],
-      "view": "video-player",
+      "data": "check-like",
+      "view": "like-button",
+      "mainView": "video-player",
       "questions": [{
         "question": "What video is the button for?",
         "label": "Video ID",

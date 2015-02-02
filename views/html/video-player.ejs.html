@@ -15,9 +15,11 @@
   <span itemprop="height" content="333"></span>
 </div>
 <% if (answers.includeLikeButton.val) { -%>
-<%-  Lucy.include('like-button', {data: {action: "check-like",
-                                         inputs: {videoID: Lucy.result('id')}
-                                        }}) %>
+<% console.log('including like') %>
+<%-  Lucy.include('likeButton', {data: {action: "check-like",
+                                        inputs: {videoID: Lucy.result('id')}
+                                       }
+                                }) %>
 <% } -%>
 <%
 var scriptUrl = function(id, partnerId) { 
@@ -31,7 +33,6 @@ var scriptUrl = function(id, partnerId) {
          '&playerId=kaltura_player_' + id +
          '&width=400&height=333' +
          '&flashvars[streamerType]=auto'
-  console.log('script:' + ret);
   return ret;
 }
 
