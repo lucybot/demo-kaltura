@@ -37,7 +37,7 @@
         "label": "Skin",
         "name": "skin",
         "type": "enum",
-        "values": [
+        "choices": [
           {"label": "KDP3 Dark Skin", "value": "27723522"},
           {"label": "KDP3 Blue Skin", "value": "27723532"},
           {"label": "KDP3 Light Skin", "value": "27723542"},
