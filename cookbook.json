@@ -6,7 +6,7 @@
         "question": "OK! I just need some information about your Kaltura account to get started",
         "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
         "label": "API Keys",
-        "type": "form"
+        "type": "form",
         "inputs": [{
           "name": "partnerID",
           "label": "Partner ID",
