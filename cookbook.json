@@ -3,24 +3,21 @@
   "recipes": {
     "setup": {
       "questions": [{
-        "question": "Welcome! I just need some information about your Kaltura account to get started",
+        "question": "OK! I just need some information about your Kaltura account to get started",
         "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "label": "Welcome",
-        "type": "dialogue"
-      }, {
-        "question": "What is your partner ID?",
-        "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "name": "partnerID",
-        "label": "Partner ID",
-        "type": "string",
-        "required": true
-      }, {
-        "question": "What is your admin secret?",
-        "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "name": "adminSecret",
-        "label": "Admin Secret",
-        "type": "string",
-        "required": true
+        "label": "API Keys",
+        "type": "form"
+        "inputs": [{
+          "name": "partnerID",
+          "label": "Partner ID",
+          "type": "string",
+          "required": true
+        }, {
+          "name": "adminSecret",
+          "label": "Admin Secret",
+          "type": "string",
+          "required": true
+        }]
       }]
     },
     "videoPlayer": {
