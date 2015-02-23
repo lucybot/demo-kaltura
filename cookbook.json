@@ -69,7 +69,7 @@
     }]
   }, {
     "label": "Like Button",
-    "actions": ["like", "unlike", "check-like"],
+    "actions": ["like", "unlike", "check_like"],
     "views": ["like_button", "video_player"],
     "main": {
       "view": "video_player",
