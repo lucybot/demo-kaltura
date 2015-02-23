@@ -55,17 +55,7 @@
       "question": "Want to include a like button?",
       "label": "Like Button",
       "name": "includeLikeButton",
-      "type": "boolean",
-      "conditionals": {
-        "true": [{
-          "include": "likeButton",
-          "name": "likeButton",
-          "inputs": {
-            "videoID": {"inherit": "videoID"},
-            "includeVideoPlayer": {"val": true}
-          }
-        }]
-      }
+      "type": "boolean"
     }]
   }, {
     "label": "Like Button",
@@ -84,13 +74,6 @@
       "name": "videoID",
       "placeholder": "1_eg2xfvy",
       "required": true
-    }, {
-      "include": "videoPlayer",
-      "label": "Video Player",
-      "inputs": {
-        "videoID": {"answer": "videoID"},
-        "includeLikeButton": {"val": true}
-      }
     }, {
       "question": "Do you want an 'unlike' button?",
       "label": "Unlike",
@@ -114,13 +97,6 @@
       "type": "string",
       "required": true,
       "userInput": true
-    }, {
-      "include": "videoPlayer",
-      "name": "videoPlayer",
-      "label": "Video Player",
-      "inputs": {
-        "videoID": {"serverInput": true}
-      }
     }]
   }]
 }
