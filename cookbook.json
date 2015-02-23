@@ -1,29 +1,35 @@
 {
   "name": "Kaltura",
-  "recipes": {
-    "setup": {
-      "questions": [{
-        "question": "OK! I just need some information about your Kaltura account to get started",
-        "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
-        "label": "API Keys",
-        "type": "form",
-        "inputs": [{
-          "name": "partnerID",
-          "label": "Partner ID",
-          "type": "string",
-          "required": true
-        }, {
-          "name": "adminSecret",
-          "label": "Admin Secret",
-          "type": "string",
-          "required": true
-        }]
+  "languages": {
+    "client": ["html"],
+    "server": ["node", "ruby", "php"]
+  },
+  "setup": {
+    "questions": [{
+      "question": "OK! I just need some information about your Kaltura account to get started",
+      "tip": "You can find your info at http://kmc.kaltura.com/index.php/kmc/kmc4#account|integration",
+      "label": "API Keys",
+      "type": "form",
+      "inputs": [{
+        "name": "partnerID",
+        "label": "Partner ID",
+        "type": "string",
+        "required": true
+      }, {
+        "name": "adminSecret",
+        "label": "Admin Secret",
+        "type": "string",
+        "required": true
       }]
-    },
-    "videoPlayer": {
+    }]
+  },
+  "recipes": [{
       "label": "Video Player",
       "actions": [],
-      "view": "video-player",
+      "views": ["video_player"],
+      "main": {
+        "view": "video_player"
+      },
       "questions": [{
         "question": "What video should the player be for?",
         "label": "Video ID",
@@ -61,13 +67,16 @@
           }]
         }
       }]
-    },
-    "likeButton": {
+    }, {
       "label": "Like Button",
       "actions": ["like", "unlike", "check-like"],
-      "data": "check-like",
-      "view": "like-button",
-      "mainView": "video-player",
+      "views": ["like_button", "video_player"],
+      "main": {
+        "view": "video_player",
+        "data": {
+          "actions": "get_video"
+        }
+      },
       "questions": [{
         "question": "What video is the button for?",
         "label": "Video ID",
@@ -88,12 +97,16 @@
         "type": "boolean",
         "name": "includeUnlikeButton"
       }]
-    },
-    "mediaList": {
+    }, {
       "label": "Video Search",
-      "actions": ["list-media"],
-      "data": "list-media",
-      "view": "media-list",
+      "actions": ["list_media"],
+      "views": ["media_list"],
+      "main": {
+        "view": "media_list",
+        "data": {
+          "action": "list_media"
+        }
+      },
       "questions": [{
         "name": "nameLike",
         "question": "What should the query be?",
