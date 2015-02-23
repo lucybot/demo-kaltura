@@ -16,7 +16,7 @@
 </div>
 <% if (Lucy.answer('includeLikeButton')) { -%>
 <% console.log('including like') %>
-<%-  Lucy.include('likeButton', {data: {action: "check-like",
+<%-  Lucy.include('like_button', {data: {action: "check-like",
                                         inputs: {videoID: Lucy.variable('result.id')}
                                        }
                                 }) %>
