@@ -24,21 +24,24 @@
       "type": "text"
     }]
   }, {
-    "title": "Search Parameters",
+    "title": "Filtering Results",
+    "tip": "This is how to retrieve an array of all your videos. Use Media Entry Filters to select which content you want to show.",
     "affects": "list_media",
     "inputs": [{
       "name": "nameLike",
-      "question": "What should the query be?",
       "label": "Query",
-      "type": "text"
+      "type": "text",
+      "default": ""
     }]
   }, {
     "title": "Video Player",
+    "tip": "Here's how to embed the results in HTML. You can select a skin by setting uiconf_id.",
     "affects": "video_player",
     "inputs": [{
       "name": "skin",
       "label": "Skin",
       "type": "radio",
+      "default": "27723522",
       "choices": [
         {"label": "KDP3 Dark Skin", "value": "27723522"},
         {"label": "KDP3 Blue Skin", "value": "27723532"},

@@ -3,16 +3,18 @@
     <h2>Search Results: <%- Lucy.variable('answers.nameLike') %></h2>
     <hr>
     <%- Lucy.for("video in result") %>
-      <div class="row">
-        <div class="col-xs-7">
-          <h3><%- Lucy.variable('video.name') %></h3>
-          <p><%- Lucy.variable('video.description') %></p>
-        </div>
-        <div class="col-xs-5">
+      <%- Lucy.if('index < 5') %>
+        <div class="row">
+          <div class="col-xs-7">
+            <h3><%- Lucy.variable('video.name') %></h3>
+            <p><%- Lucy.variable('video.description') %></p>
+          </div>
+          <div class="col-xs-5">
 <%- Lucy.include('video_player', {tabs: 10, result: 'video'}); %>
+          </div>
         </div>
-      </div>
-      <hr>
+        <hr>
+      <%- Lucy.fi() %>
     <%- Lucy.rof("video in result") %>
   </div>
 </div>

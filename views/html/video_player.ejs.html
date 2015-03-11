@@ -32,7 +32,6 @@ var scriptUrl = function(id, partnerId, concat) {
   <span itemprop="height" content="333"></span>
 </div>
 <% if (Lucy.answer('includeLikeButton')) { -%>
-<% console.log('including like') %>
 <%-  Lucy.include('like_button', {data: {action: "check-like",
                                         inputs: {videoID: Lucy.variable('result.id')}
                                        }
@@ -45,7 +44,6 @@ var scriptUrl = function(id, partnerId, concat) {
 <script>
 app.controller('kaltura_player', function($scope) {
   $scope.getScript = function() {
-    console.log($scope.video);
     var url = 'http://cdnapi.kaltura.com' +
          '/p/' + $scope.video.partnerId + 
          '/sp/' + $scope.video.partnerId  + '00' +
