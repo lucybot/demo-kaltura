@@ -5,4 +5,4 @@ App.use(Express.static(__dirname + '/static'));
 
 require('./Kaltura-routes.js').setRoutes(App);
 
-App.listen(3000);
+App.listen(3333);

@@ -1,7 +1,24 @@
-<div id="kaltura_player_<%- Lucy.variable('result.id') %>"
+<%
+var scriptUrl = function(id, partnerId, concat) {
+  var pieces =
+        ['http://cdnapi.kaltura.com/p/', partnerId,
+         '/sp/', partnerId, '00/embedIframeJs/uiconf_id/',
+         Lucy.answer('skin'),
+         '/partner_id/', partnerId,
+         '?autoembed=true&entry_id=', id,
+         '&playerId=kaltura_player_', id,
+         '&width=400&height=333&flashvars[streamerType]=auto']
+  if (concat) {
+    return pieces.join('+');
+  } else {
+    return pieces.join('');
+  }
+}
+-%>
+<div id="kaltura_player_<%-Lucy.variable('result.id') %>"
 <% if (Lucy.language.client === 'html-angular') { -%>
-     ng-controller="VideoController"
-     ng-init="loadScript(<%- Lucy.variableJS('result.id') %>, <%- Lucy.variableJS('result.partnerId') %>)"
+     ng-init="getScript()"
+     ng-controller="kaltura_player"
 <% } -%>
      style="width: 400px; height: 333px;"
      itemprop="video" itemscope
@@ -21,37 +38,22 @@
                                        }
                                 }) %>
 <% } -%>
-<%
-var scriptUrl = function(id, partnerId) { 
-  var ret = 'http://cdnapi.kaltura.com' +
-         '/p/' + partnerId +
-         '/sp/' + partnerId  + '00' +
-         '/embedIframeJs' +
-         '/uiconf_id/' + Lucy.answer('skin') +
-         '/partner_id/' + partnerId +
-         '?autoembed=true&entry_id=' + id +
-         '&playerId=kaltura_player_' + id +
-         '&width=400&height=333' +
-         '&flashvars[streamerType]=auto'
-  return ret;
-}
-
--%>
 <% if (Lucy.language.client !== 'html-angular') { %>
 <script src="<%- scriptUrl(Lucy.variable('result.id'), Lucy.variable('result.partnerId')) %>">
 </script>
 <% } else { -%>
 <script>
-app.controller('VideoController', function($scope) {
-  $scope.loadScript = function(videoID, partnerID) {
+app.controller('kaltura_player', function($scope) {
+  $scope.getScript = function() {
+    console.log($scope.video);
     var url = 'http://cdnapi.kaltura.com' +
-         '/p/' + partnerID + 
-         '/sp/' + partnerID  + '00' +
+         '/p/' + $scope.video.partnerId + 
+         '/sp/' + $scope.video.partnerId  + '00' +
          '/embedIframeJs' +
          '/uiconf_id/<%- Lucy.answer('skin') %>' +
-         '/partner_id/' + partnerID +
-         '?autoembed=true&entry_id=' + videoID +
-         '&playerId=kaltura_player_' + videoID +
+         '/partner_id/' + $scope.video.partnerId +
+         '?autoembed=true&entry_id=' + $scope.video.id +
+         '&playerId=kaltura_player_' + $scope.video.id +
          '&width=400&height=333' +
          '&flashvars[streamerType]=auto';
     $.getScript(url);
