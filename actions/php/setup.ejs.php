@@ -4,7 +4,7 @@ $config->serviceUrl = 'https://www.kaltura.com/';
 $KalturaClient = new KalturaClient($config);
 $KalturaSession = $KalturaClient->session->start(
     <%- Lucy.variable('answers.adminSecret') %>,
-    "myUser",
+    <%- Lucy.variable('answers.userID') %>,
     KalturaSessionType::ADMIN,
     <%- Lucy.variable('answers.partnerID') %>,
     null, null);
