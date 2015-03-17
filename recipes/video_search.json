@@ -1,6 +1,6 @@
 {
   "name": "video_search",
-  "title": "Video Search",
+  "title": "Kaltura Video Search",
   "description": "Learn how to search through your video library using Kaltura's API",
   "views": ["media_list", "video_player"],
   "actions": ["list_media"],
