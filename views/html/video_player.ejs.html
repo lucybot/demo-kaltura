@@ -1,20 +1,36 @@
 <%
-var scriptUrl = function(id, partnerId, concat) {
-  var pieces =
-        ['http://cdnapi.kaltura.com/p/', partnerId,
-         '/sp/', partnerId, '00/embedIframeJs/uiconf_id/',
-         Lucy.answer('skin'),
-         '/partner_id/', partnerId,
-         '?autoembed=true&entry_id=', id,
-         '&playerId=kaltura_player_', id,
-         '&width=400&height=333&flashvars[streamerType]=auto']
-  if (concat) {
-    return pieces.join('+');
-  } else {
-    return pieces.join('');
-  }
+var frameUrl = function(id, partnerId) {
+  if (Lucy.language.client === 'html-angular') return '{{ getIframeUrl() }}'
+  var pieces = ["https://cdnapisec.kaltura.com/p/",
+                partnerId,
+                "/sp/", partnerId, "00",
+                "/embedIframeJs/uiconf_id/",
+                Lucy.answer('skin'),
+                "/partner_id/", partnerId,
+                "?iframeembed=true",
+                "&playerId=kaltura_player_", id,
+                "&entry_id=", id]
+  return pieces.join('');
 }
 -%>
+<% if (Lucy.language.client == 'html-angular') { %>
+<script>
+app.controller('kaltura_player', ['$scope', '$sce', function($scope, $sce) {
+  $scope.getIframeUrl = function() {
+    var pieces = ["https://cdnapisec.kaltura.com",
+                  "/p/", $scope.video.partnerId,
+                  "/sp/", $scope.video.partnerId, "00",
+                  "/embedIframeJs/uiconf_id/",
+                  <%- Lucy.answer('skin') %>,
+                  "/partner_id/", $scope.video.partnerId,
+                  "?iframeembed=true",
+                  "&playerId=kaltura_player_", $scope.video.id,
+                  "&entry_id=", $scope.video.id];
+    return $sce.trustAsResourceUrl(pieces.join(''));
+  }
+}])
+</script>
+<% }        -%>
 <div id="kaltura_player_<%-Lucy.variable('result.id') %>"
 <% if (Lucy.language.client === 'html-angular') { -%>
      ng-init="getScript()"
@@ -30,6 +46,9 @@ var scriptUrl = function(id, partnerId, concat) {
   </span>
   <span itemprop="width" content="400"></span>
   <span itemprop="height" content="333"></span>
+
+  <iframe src="<%- frameUrl(Lucy.variable('result.id'), Lucy.variable('result.partnerId')) %>"
+          width="400" height="333">
 </div>
 <% if (Lucy.answer('includeLikeButton')) { -%>
 <%-  Lucy.include('like_button', {data: {action: "check-like",
@@ -37,25 +56,3 @@ var scriptUrl = function(id, partnerId, concat) {
                                        }
                                 }) %>
 <% } -%>
-<% if (Lucy.language.client !== 'html-angular') { %>
-<script src="<%- scriptUrl(Lucy.variable('result.id'), Lucy.variable('result.partnerId')) %>">
-</script>
-<% } else { -%>
-<script>
-app.controller('kaltura_player', function($scope) {
-  $scope.getScript = function() {
-    var url = 'http://cdnapi.kaltura.com' +
-         '/p/' + $scope.video.partnerId + 
-         '/sp/' + $scope.video.partnerId  + '00' +
-         '/embedIframeJs' +
-         '/uiconf_id/<%- Lucy.answer('skin') %>' +
-         '/partner_id/' + $scope.video.partnerId +
-         '?autoembed=true&entry_id=' + $scope.video.id +
-         '&playerId=kaltura_player_' + $scope.video.id +
-         '&width=400&height=333' +
-         '&flashvars[streamerType]=auto';
-    $.getScript(url);
-  }
-})
-</script>
-<% }        -%>
