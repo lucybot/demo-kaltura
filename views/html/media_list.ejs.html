@@ -1,3 +1,21 @@
+<% if (Lucy.language.client == 'html-angular') { %>
+<script>
+app.controller('kaltura_player', ['$scope', '$sce', function($scope, $sce) {
+  $scope.getIframeUrl = function(id, partnerId) {
+    var pieces = ["https://cdnapisec.kaltura.com",
+                  "/p/", partnerId,
+                  "/sp/", partnerId, "00",
+                  "/embedIframeJs/uiconf_id/",
+                  <%- Lucy.answer('skin') %>,
+                  "/partner_id/", partnerId,
+                  "?iframeembed=true",
+                  "&playerId=kaltura_player_", id,
+                  "&entry_id=", id];
+    return $sce.trustAsResourceUrl(pieces.join(''));
+  }
+}])
+</script>
+<% } -%>
 <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
     <h2>Search Results: <%- Lucy.variable('answers.nameLike') %></h2>

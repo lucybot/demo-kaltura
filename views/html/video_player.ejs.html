@@ -1,6 +1,6 @@
 <%
 var frameUrl = function(id, partnerId) {
-  if (Lucy.language.client === 'html-angular') return '{{ getIframeUrl() }}'
+  if (Lucy.language.client === 'html-angular') return '{{ getIframeUrl(video.id, video.partnerId) }}'
   var pieces = ["https://cdnapisec.kaltura.com/p/",
                 partnerId,
                 "/sp/", partnerId, "00",
@@ -13,27 +13,8 @@ var frameUrl = function(id, partnerId) {
   return pieces.join('');
 }
 -%>
-<% if (Lucy.language.client == 'html-angular') { %>
-<script>
-app.controller('kaltura_player', ['$scope', '$sce', function($scope, $sce) {
-  $scope.getIframeUrl = function() {
-    var pieces = ["https://cdnapisec.kaltura.com",
-                  "/p/", $scope.video.partnerId,
-                  "/sp/", $scope.video.partnerId, "00",
-                  "/embedIframeJs/uiconf_id/",
-                  <%- Lucy.answer('skin') %>,
-                  "/partner_id/", $scope.video.partnerId,
-                  "?iframeembed=true",
-                  "&playerId=kaltura_player_", $scope.video.id,
-                  "&entry_id=", $scope.video.id];
-    return $sce.trustAsResourceUrl(pieces.join(''));
-  }
-}])
-</script>
-<% }        -%>
 <div id="kaltura_player_<%-Lucy.variable('result.id') %>"
 <% if (Lucy.language.client === 'html-angular') { -%>
-     ng-init="getScript()"
      ng-controller="kaltura_player"
 <% } -%>
      style="width: 400px; height: 333px;"
